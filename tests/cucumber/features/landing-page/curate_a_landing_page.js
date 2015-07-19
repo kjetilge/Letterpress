@@ -2,12 +2,10 @@ module.exports = function () {
 
   this.Given(/^I have created a landing page with the heading "([^"]*)"$/, function (heading, callback) {
     this.server.call('page/create', {path: '/', heading: heading}).then(callback);
-    //callback.pending();
   });
 
   this.When(/^a user navigates to the landing page$/, function (callback) {
     this.client.url(process.env.ROOT_URL).call(callback)
-    //callback.pending();
   });
 
   this.Then(/^they see the heading "([^"]*)"$/, function (heading, callback) {-
